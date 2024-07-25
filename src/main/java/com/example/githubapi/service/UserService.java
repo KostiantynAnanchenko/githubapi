@@ -31,7 +31,7 @@ public class UserService {
 
         ResponseEntity<Map[]> response = restTemplate.exchange(url, HttpMethod.GET, entity, Map[].class);
 
-        if (response.getStatusCodeValue() == 404 || response.getStatusCodeValue() == 500 ) {
+        if (response.getStatusCodeValue() == 404) {
             throw new UserNotFoundException("User not found");
         }
 

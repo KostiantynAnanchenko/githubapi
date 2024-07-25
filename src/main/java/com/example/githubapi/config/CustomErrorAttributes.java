@@ -15,7 +15,7 @@ public class CustomErrorAttributes extends DefaultErrorAttributes {
         Map<String, Object> errorAttributes = super.getErrorAttributes(webRequest, options);
 
 
-        errorAttributes.put("customMessage", "Something went wrong");
+        errorAttributes.put("customMessage", "Something went wrong, user not found. Please check the information and try again.");
 
         return errorAttributes;
     }
