@@ -16,8 +16,8 @@ public class UserService {
 
     private final String GITHUB_API_URL = "https://api.github.com";
 
-    String tokenFirstPart ="ghp_22Unjp24yjFgbw";
-    String tokenSecondPart ="ZQIX3P38lO4s0SZE3hjNum";
+    private String tokenFirstPart ="ghp_22Unjp24yjFgbw";
+    private String tokenSecondPart ="ZQIX3P38lO4s0SZE3hjNum";
     private String githubToken = tokenFirstPart + tokenSecondPart;  //This is necessary for GitHub to allow pushing this code to the public repository.
 
     public List<Repository> getRepositories(String username) throws UserNotFoundException {
