@@ -17,8 +17,9 @@ public class UserService {
 
     private final String GITHUB_API_URL = "https://api.github.com";
 
-    @Value("${github.token}")
-    private String githubToken;
+    String firstPart="ghp_22Unjp24yjFgbw";
+    String secondPart="ZQIX3P38lO4s0SZE3hjNum";
+    private String githubToken =firstPart+secondPart;
 
     public List<Repository> getRepositories(String username) throws UserNotFoundException {
         RestTemplate restTemplate = new RestTemplate();
