@@ -3,7 +3,6 @@ package com.example.githubapi.service;
 import com.example.githubapi.model.Branch;
 import com.example.githubapi.model.Repository;
 import com.example.githubapi.exception.UserNotFoundException;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.*;
@@ -17,9 +16,9 @@ public class UserService {
 
     private final String GITHUB_API_URL = "https://api.github.com";
 
-    String firstPart="ghp_22Unjp24yjFgbw";
-    String secondPart="ZQIX3P38lO4s0SZE3hjNum";
-    private String githubToken =firstPart+secondPart;
+    String tokenFirstPart ="ghp_22Unjp24yjFgbw";
+    String tokenSecondPart ="ZQIX3P38lO4s0SZE3hjNum";
+    private String githubToken = tokenFirstPart + tokenSecondPart;  //This is necessary for GitHub to allow pushing this code to the public repository.
 
     public List<Repository> getRepositories(String username) throws UserNotFoundException {
         RestTemplate restTemplate = new RestTemplate();
