@@ -1,10 +1,8 @@
 package com.example.githubapi.controller;
 
+import com.example.githubapi.exception.UserNotFoundException;
 import com.example.githubapi.model.Repository;
 import com.example.githubapi.service.UserService;
-import com.example.githubapi.exception.UserNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,16 +11,14 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/{username}/repos")
-    public ResponseEntity<List<Repository>> getRepos(@PathVariable String username) {
-        try {
-            List<Repository> repositories = userService.getRepositories(username);
-            return ResponseEntity.ok(repositories);
-        } catch (UserNotFoundException e) {
-            return ResponseEntity.status(404).body(null);
-        }
+    public List<Repository> getRepos(@PathVariable String username) throws UserNotFoundException {
+        return userService.getRepositories(username);
     }
 }
